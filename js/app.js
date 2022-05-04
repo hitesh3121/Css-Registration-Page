@@ -29,21 +29,27 @@ function validate(){
 }
 button.addEventListener('click',e => {
     e.preventDefault();
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('psw').value;
-    const confirm_password = document.getElementById('confirm_psw').value;
+    let name = document.getElementById('name');
+    let email = document.getElementById('email');
+    let password = document.getElementById('psw');
+    let confirm_password = document.getElementById('confirm_psw');
+    let form = document.getElementById('form');
 
-    if (password != confirm_password){
+    if (password.value != confirm_password.value){
         alert("Passwords don't Match.")
         return false;
     }
     else{
         console.log({
-            name : name, 
-            email : email,
-            password : password,
+            name : name.value, 
+            email : email.value,
+            password : password.value,
             
         })
+       name.value='';
+       email.value='';
+       password.value='';
+       confirm_password.value='';
+       form.value='';
     }
 })
